@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para o nenê cabeção ❤️</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background: linear-gradient(135deg, #ff9ec4, #ffd6e7);
+    font-family: Arial, sans-serif;
+    padding:20px;
+}
+
+h1{
+    color:white;
+    font-size:50px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+p{
+    color:white;
+    font-size:28px;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* Fotos centralizadas e responsivas */
+img{
+    max-width:90%;       /* nunca maior que a tela */
+    height:auto;          /* mantém proporção */
+    border-radius:20px;
+    margin:10px 0;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Corações caindo */
+.heart{
+    position:absolute;
+    top:-10px;
+    color:red;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Para o nenê cabeção ❤️</h1>
+
+<!-- Fotos -->
+<img src="foto1.jpg" alt="Foto 1">
+<img src="foto2.jpg" alt="Foto 2">
+<img src="foto3.jpg" alt="Foto 3">
+
+<p>Eu te amo ❤️</p>
+
+<script>
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.animationDuration = (Math.random()*3+2)+"s";
+    heart.style.fontSize = (Math.random()*20+10)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,200);
+</script>
+
+</body>
+</html>
