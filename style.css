@@ -1,1 +1,68 @@
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.tela{
+  min-height:100vh;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+  transition:opacity 0.6s ease;
+}
+
+.ativa{
+  display:flex;
+}
+
+button{
+  padding:12px 25px;
+  margin:15px;
+  border:none;
+  background:#e50914;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#b20710;
+}
+
+.galeria{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:20px;
+}
+
+.galeria img{
+  width:250px;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.galeria img:hover{
+  transform:scale(1.05);
+}
+
+.crianca{
+  width:250px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+.frase-final{
+  margin-top:20px;
+  font-size:20px;
+}
 
