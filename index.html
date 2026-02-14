@@ -1,87 +1,180 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <title>Para o nenê cabeção</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family: 'Georgia', serif;
+    background-color:#111;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* TELAS */
+
+.tela{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+/* TELA 1 */
+
+.tela1{
+    background:black;
+}
+
+.tela1 h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.botao{
+    padding:15px 30px;
+    background:white;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:#ff4da6;
+    color:white;
+}
+
+/* TELA 2 */
+
+.tela2{
+    background:#1a1a1a;
+}
+
+.escolhas{
+    display:flex;
+    gap:30px;
+    margin-top:30px;
+}
+
+.escolha{
+    padding:20px;
+    border:2px solid white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.escolha:hover{
+    background:#ff4da6;
+}
+
+/* GALERIA */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(3, 200px);
+    gap:15px;
+    margin-top:30px;
+}
+
+.galeria img{
+    width:200px;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* FINAL */
+
+.final{
+    background:black;
+}
+
+.final img{
+    width:300px;
+    margin-top:20px;
+    border-radius:15px;
+}
+
+</style>
+
 </head>
 <body>
 
-<!-- ENTRADA -->
-<section id="entrada" class="tela ativa">
-  <h1>Para o nenê cabeção</h1>
-  <p>Eu poderia começar esse site de mil formas diferentes…</p>
-  <p>Mas a verdade é simples:</p>
-  <h2>É sobre você.</h2>
-  <button onclick="irParaEscolha()">Entrar</button>
-</section>
+<!-- TELA 1 -->
 
-<!-- ESCOLHA -->
-<section id="escolha" class="tela">
-  <h2>Escolha com cuidado...</h2>
+<div class="tela tela1" id="inicio">
+    <h1>Para o nenê cabeção</h1>
 
-  <div class="botoes">
-    <button onclick="mostrarZuadas()">Fotos zuadas</button>
-    <button onclick="mostrarFavoritas()">Fotos que eu gosto</button>
-  </div>
+    <p>Eu poderia começar esse site de mil formas diferentes…</p>
+    <p>Mas a verdade é simples:</p>
+    <p><strong>É sobre você.</strong></p>
 
-  <div id="conteudo"></div>
-</section>
+    <br>
+    <a href="#escolha" class="botao">Entrar</a>
+</div>
+
+<!-- TELA 2 -->
+
+<div class="tela tela2" id="escolha">
+    <h2>Escolha com cuidado...</h2>
+
+    <div class="escolhas">
+        <a href="#zuadas" class="escolha">Fotos Zuadas</a>
+        <a href="#boas" class="escolha">Fotos que eu gosto</a>
+    </div>
+</div>
+
+<!-- FOTOS ZUADAS -->
+
+<div class="tela" id="zuadas">
+    <h2>Você não tem fotos zuadas.</h2>
+    <p>Só versões suas que eu amo.</p>
+
+    <div class="galeria">
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+    </div>
+
+    <br><br>
+    <a href="#final" class="botao">Continuar</a>
+</div>
+
+<!-- FOTOS BOAS -->
+
+<div class="tela" id="boas">
+    <h2>Essas aqui me fazem sorrir.</h2>
+
+    <div class="galeria">
+        <img src="4.jpg">
+        <img src="5.jpg">
+        <img src="6.jpg">
+    </div>
+
+    <br><br>
+    <a href="#final" class="botao">Continuar</a>
+</div>
 
 <!-- FINAL -->
-<section id="final" class="tela">
-  <h2>Eu nunca vou te deixar.</h2>
-  <p>sabe porque?</p>
 
-  <img src="eu-crianca.jpg" class="crianca">
+<div class="tela final" id="final">
 
-  <p class="frase-final">
-  Era o sonho desse garotinho ter uma princesa como você.
-  </p>
-</section>
+    <h2>Eu nunca vou te deixar.</h2>
+    <p>Sabe por quê?</p>
 
-<script>
+    <img src="eu-crianca.jpg">
 
-function irParaEscolha() {
-  trocarTela("entrada","escolha");
-}
+    <p><strong>Era o sonho desse garotinho ter uma princesa como você.</strong></p>
 
-function mostrarZuadas() {
-  const conteudo = document.getElementById("conteudo");
-  conteudo.innerHTML = `
-    <h3>Você não tem fotos zuadas. Só perfeitas.</h3>
-    <div class="galeria">
-      <img src="1.jpg">
-      <img src="2.jpg">
-      <img src="3.jpg">
-    </div>
-    <button onclick="irParaFinal()">Continuar</button>
-  `;
-}
-
-function mostrarFavoritas() {
-  const conteudo = document.getElementById("conteudo");
-  conteudo.innerHTML = `
-    <h3>Essas são as que eu mais gosto.</h3>
-    <div class="galeria">
-      <img src="4.jpg">
-      <img src="5.jpg">
-      <img src="6.jpg">
-    </div>
-    <button onclick="irParaFinal()">Continuar</button>
-  `;
-}
-
-function irParaFinal() {
-  trocarTela("escolha","final");
-}
-
-function trocarTela(atual,proxima){
-  document.getElementById(atual).classList.remove("ativa");
-  document.getElementById(proxima).classList.add("ativa");
-}
-
-</script>
+</div>
 
 </body>
 </html>
