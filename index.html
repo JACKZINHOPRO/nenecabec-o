@@ -9,124 +9,124 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  text-align: center;
   background: black;
   color: white;
-  transition: 0.5s;
+  text-align: center;
 }
 
-h1 {
-  margin-top: 40px;
+/* TELA INICIAL */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.botoes {
-  margin: 20px;
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 400px;
 }
 
 button {
-  padding: 12px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
+  margin-top: 30px;
+  padding: 12px 25px;
   font-size: 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-}
-
-.roxo {
-  background: purple;
-  color: white;
-}
-
-.rosa {
   background: hotpink;
   color: white;
 }
 
-/* TEMA ROXO */
-.tema-roxo {
-  background: linear-gradient(180deg, #1a001a, #4b0082);
-}
-
-/* TEMA ROSA */
-.tema-rosa {
-  background: linear-gradient(180deg, black, hotpink);
+/* PARTE ESCONDIDA */
+.conteudo {
+  display: none;
+  padding: 40px 0;
 }
 
 .secao {
   position: relative;
-  margin: 40px 0;
+  margin: 60px 0;
 }
 
 .secao img {
   width: 90%;
   max-width: 400px;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
-.palavra {
+.frase {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 35px;
-  font-weight: bold;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
 }
 
-.texto-final {
-  margin: 40px;
-  font-size: 20px;
+.final {
+  margin: 80px 20px;
+  font-size: 22px;
 }
-
 </style>
 </head>
 
 <body>
 
-<h1>Se a gente fosse um casal de desenho…</h1>
+<div class="hero" id="entrada">
+  <h1>Para o nenê cabeção</h1>
+  <p>
+    Eu poderia começar esse site de mil formas diferentes…<br><br>
+    Mas a verdade é simples:<br><br>
+    É sobre você.
+  </p>
 
-<div class="botoes">
-  <button class="roxo" onclick="temaRoxo()">Mutano & Ravena</button>
-  <button class="rosa" onclick="temaRosa()">Robin & Estelar</button>
+  <button onclick="entrar()">Entrar</button>
 </div>
 
-<h2>Para o nenê cabeção</h2>
+<div class="conteudo" id="conteudo">
 
-<div class="secao">
-  <img src="foto1.jpg">
-  <div class="palavra">Linda</div>
+  <div class="secao">
+    <img src="foto1.jpg">
+    <div class="frase">Você é a parte mais bonita dos meus dias.</div>
+  </div>
+
+  <div class="secao">
+    <img src="foto2.jpg">
+    <div class="frase">Você é diferente de tudo que eu já conheci.</div>
+  </div>
+
+  <div class="secao">
+    <img src="foto3.jpg">
+    <div class="frase">E eu tenho orgulho de ter você comigo.</div>
+  </div>
+
+  <div class="secao">
+    <img src="eu-crianca.jpg">
+    <div class="frase">
+      Eu nunca vou te deixar.<br><br>
+      Sabe por quê?<br><br>
+      Era o sonho desse garotinho ter uma princesa como você.
+    </div>
+  </div>
+
+  <div class="final">
+    Eu te amo.
+  </div>
+
 </div>
-
-<div class="secao">
-  <img src="foto2.jpg">
-  <div class="palavra">Incrível</div>
-</div>
-
-<div class="secao">
-  <img src="foto3.jpg">
-  <div class="palavra">Minha</div>
-</div>
-
-<div class="secao">
-  <img src="eu-crianca.jpg">
-</div>
-
-<div class="texto-final">
-  Eu nunca vou te deixar.<br><br>
-  Sabe por quê?<br><br>
-  Era o sonho desse garotinho ter uma princesa como você.
-</div>
-
-<h2>Eu te amo.</h2>
 
 <script>
-function temaRoxo() {
-  document.body.classList.remove("tema-rosa");
-  document.body.classList.add("tema-roxo");
-}
-
-function temaRosa() {
-  document.body.classList.remove("tema-roxo");
-  document.body.classList.add("tema-rosa");
+function entrar() {
+  document.getElementById("entrada").style.display = "none";
+  document.getElementById("conteudo").style.display = "block";
 }
 </script>
 
