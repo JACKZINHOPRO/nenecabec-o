@@ -1,90 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Para o nenê cabeção ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para o nenê cabeção</title>
 
 <style>
-body{
-    margin:0;
-    min-height:100vh;
-    overflow-y:auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    background: linear-gradient(135deg, #ff9ec4, #ffd6e7);
-    font-family: Arial, sans-serif;
-    padding:20px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: black;
+  color: white;
+  transition: 0.5s;
 }
 
-h1{
-    color:white;
-    font-size:50px;
-    text-shadow:2px 2px 10px rgba(0,0,0,0.2);
-    text-align:center;
+h1 {
+  margin-top: 40px;
 }
 
-p{
-    color:white;
-    font-size:28px;
-    text-align:center;
-    margin-top:20px;
+.botoes {
+  margin: 20px;
 }
 
-/* Fotos centralizadas e responsivas */
-img{
-    max-width:90%;       /* nunca maior que a tela */
-    height:auto;          /* mantém proporção */
-    border-radius:20px;
-    margin:10px 0;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* Corações caindo */
-.heart{
-    position:absolute;
-    top:-10px;
-    color:red;
-    animation:fall linear infinite;
+.roxo {
+  background: purple;
+  color: white;
 }
 
-@keyframes fall{
-    to{
-        transform:translateY(110vh);
-    }
+.rosa {
+  background: hotpink;
+  color: white;
 }
+
+/* TEMA ROXO */
+.tema-roxo {
+  background: linear-gradient(180deg, #1a001a, #4b0082);
+}
+
+/* TEMA ROSA */
+.tema-rosa {
+  background: linear-gradient(180deg, black, hotpink);
+}
+
+.secao {
+  position: relative;
+  margin: 40px 0;
+}
+
+.secao img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+}
+
+.palavra {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.texto-final {
+  margin: 40px;
+  font-size: 20px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Para o nenê cabeção ❤️</h1>
+<h1>Se a gente fosse um casal de desenho…</h1>
 
-<!-- Fotos -->
-<img src="foto1.jpg" alt="Foto 1">
-<img src="foto2.jpg" alt="Foto 2">
-<img src="foto3.jpg" alt="Foto 3">
+<div class="botoes">
+  <button class="roxo" onclick="temaRoxo()">Mutano & Ravena</button>
+  <button class="rosa" onclick="temaRosa()">Robin & Estelar</button>
+</div>
 
-<p>Eu te amo ❤️</p>
+<h2>Para o nenê cabeção</h2>
+
+<div class="secao">
+  <img src="foto1.jpg">
+  <div class="palavra">Linda</div>
+</div>
+
+<div class="secao">
+  <img src="foto2.jpg">
+  <div class="palavra">Incrível</div>
+</div>
+
+<div class="secao">
+  <img src="foto3.jpg">
+  <div class="palavra">Minha</div>
+</div>
+
+<div class="secao">
+  <img src="eu-crianca.jpg">
+</div>
+
+<div class="texto-final">
+  Eu nunca vou te deixar.<br><br>
+  Sabe por quê?<br><br>
+  Era o sonho desse garotinho ter uma princesa como você.
+</div>
+
+<h2>Eu te amo.</h2>
 
 <script>
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
-
-    heart.style.left = Math.random()*100+"vw";
-    heart.style.animationDuration = (Math.random()*3+2)+"s";
-    heart.style.fontSize = (Math.random()*20+10)+"px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },5000);
+function temaRoxo() {
+  document.body.classList.remove("tema-rosa");
+  document.body.classList.add("tema-roxo");
 }
 
-setInterval(createHeart,200);
+function temaRosa() {
+  document.body.classList.remove("tema-roxo");
+  document.body.classList.add("tema-rosa");
+}
 </script>
 
 </body>
